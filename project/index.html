@@ -8,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-<body class="bd-gray-100 min-h-screen">
+<body class="bg-gray-100 min-h-screen">
 
 <!-----Nav bar-->
     <div class="navbar bg-white shadow-md px-4 md:px-8">
@@ -49,7 +49,7 @@
     <!---main section has started here----------->
 
     <main class="container mx-auto px-4 py-8">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
             <!-- Card 1 -->
             <div class="lg:col-span-3">
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -263,12 +263,29 @@
                             </div>
                         </div>
                     </div>
-
-
+                </div>
+            </div>
+            
+            <!-- History section -->
+             <div class="lg:col-span-1">
+                <div class="bg-white shadow-xl rounded-lg p-6 h-full">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-xl font-bold flex items-center">
+                            <i class="fas fa-history text-primary mr-2"></i>
+                            Call History
+                        </h2>
+                        <button class="btn btn-sm btn-outline bg-green-600" onclick="clearHistory()">
+                            <p class="text-white">Clear History</p>
+                        </button>
+                    </div>
+                    <div id="history-list" class="space-y-4">
+                        <p class="text-gray-500 text-center py-10" id="empty-history">No call history yet</p>
+                    </div>
                 </div>
             </div>
             
         </div>
+    </main>
 
      
 </body>
