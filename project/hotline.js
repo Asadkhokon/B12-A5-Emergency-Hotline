@@ -1,4 +1,4 @@
-console.log("Hotline JS loaded");
+console.log("For Checking Js connection.");
 
         let heartCount = 100;
         let coinCount = 100;
@@ -22,25 +22,21 @@ console.log("Hotline JS loaded");
 
         
         function copyNumber(number, service) {
-            // Copy to clipboard
+       
             navigator.clipboard.writeText(number).then(() => {
                 alert(`Copied ${service} number: ${number}`);
             });
             
-            // Increment copy count
             copyCount++;
             document.getElementById('copy-count').textContent = copyCount;
         }
 
-        // Function to make a call
         function makeCall(number, service) {
-            // Check if user has enough coins
             if (coinCount < 20) {
                 alert("You don't have enough coins to make a call. Minimum 20 coins required.");
                 return;
             }
             
-            // Deduct coins
             coinCount -= 20;
             document.getElementById('coin-count').textContent = coinCount;
             
@@ -48,24 +44,18 @@ console.log("Hotline JS loaded");
             const callTime=getformattedTime();
 
 
-            // Show alert
             alert(`Calling ${service} at ${number} (${callTime})`);
             
-            // Add to call history
             addToHistory(service, number, callTime);
         }
 
-        // Function to add to call history
         function addToHistory(service, number, callTime) {
-            // Hide empty message if it's the first item
             if (callHistory.length === 0) {
                 document.getElementById('empty-history').style.display = 'none';
             }
             
-            // Add to history array
             callHistory.push({ service, number, callTime });
             
-            // Create history item
             const historyItem = document.createElement('div');
             historyItem.className = 'bg-gray-100 p-3 rounded-lg';
             historyItem.innerHTML = `
@@ -78,16 +68,13 @@ console.log("Hotline JS loaded");
             </div>
             `;
             
-            // Add to history list
             document.getElementById('history-list').prepend(historyItem);
         }
 
-        // Function to clear history
         function clearHistory() {
             callHistory = [];
             document.getElementById('history-list').innerHTML = '';
             
-            // Show empty message
             const emptyMsg = document.createElement('p');
             emptyMsg.className = 'text-gray-500 text-center py-10';
             emptyMsg.id = 'empty-history';
